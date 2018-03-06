@@ -1,0 +1,17 @@
+.ProgressBar {
+  background-color: #aaa;
+}
+
+.ProgressBar-percentage {
+  margin-top: 3px;
+  font-size: 120%;
+}
+
+.ProgressBar-bar {
+  background-color: white;
+  padding: 0;
+  margin-top: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
