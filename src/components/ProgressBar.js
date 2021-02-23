@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 /*
  * Stateless progress bar
@@ -17,11 +17,11 @@ class ProgressBar extends Component {
    * Default width 200, height 20.
    */
   render() {
-    var rho = this._computeRho(this.props.value || 0);
-    var percent = Math.round(rho * 100);
+    var rho = this._computeRho(this.props.value || 0)
+    var percent = Math.round(rho * 100)
 
-    var w = this.props.width || 200;
-    var h = this.props.height || 20;
+    var w = this.props.width || 200
+    var h = this.props.height || 20
 
     return (
       <div className="ProgressBar">
@@ -30,21 +30,21 @@ class ProgressBar extends Component {
           {percent}%
         </p>
       </div>
-    );
+    )
   }
 
   /*
    * Draw on a mount
    */
   componentDidMount(prevProps, prevState) {
-    this._draw();
+    this._draw()
   }
   
   /*
    * Draw on an update
    */
   componentDidUpdate(prevProps, prevState) {
-    this._draw();
+    this._draw()
   }
 
   /*
@@ -52,16 +52,16 @@ class ProgressBar extends Component {
    * elements have been created.
    */
   _draw() {
-    const ctx = this.refs.canvas.getContext('2d');
+    const ctx = this.refs.canvas.getContext('2d')
 
-    var h = this.refs.canvas.height;
-    var w = this.refs.canvas.width;
-    var rho = this._computeRho(this.props.value);
-    var len = rho * w;
+    var h = this.refs.canvas.height
+    var w = this.refs.canvas.width
+    var rho = this._computeRho(this.props.value)
+    var len = rho * w
 
-    ctx.fillStyle = this.props.color || 'red';
-    ctx.clearRect(0,0,w,h);
-    ctx.fillRect(0,0,len,h);
+    ctx.fillStyle = this.props.color || 'red'
+    ctx.clearRect(0,0,w,h)
+    ctx.fillRect(0,0,len,h)
   }
 
   /*
@@ -71,19 +71,19 @@ class ProgressBar extends Component {
    * we assume 0.
    */
   _computeRho(x) {
-    if(!x) x = 0;
+    if(!x) x = 0
 
-    var a = this.props.low || 0;
-    var b = this.props.high || 100;
+    var a = this.props.low || 0
+    var b = this.props.high || 100
 
-    var range = b - a;
+    var range = b - a
 
-    var rho = (x - a) / range;
-    rho = Math.max(rho, 0);   // must be at least 0
-    rho = Math.min(rho, 1);   // and no greater than 1
+    var rho = (x - a) / range
+    rho = Math.max(rho, 0)   // must be at least 0
+    rho = Math.min(rho, 1)   // and no greater than 1
 
-    return rho;
+    return rho
   }
 }
 
-export default ProgressBar;
+export default ProgressBar
