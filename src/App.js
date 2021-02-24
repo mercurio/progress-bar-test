@@ -25,7 +25,7 @@ class App extends Component {
    * Render the App
    */
   render() {
-    var dir = (this.state.direction === -1) ? 'decreasing' : 'increasing'
+    const dir = (this.state.direction === -1) ? 'decreasing' : 'increasing'
 
     return (
       <div className="App">
@@ -60,8 +60,8 @@ class App extends Component {
    * Compute one tick of the animation
    */
   _tick() {
-    var v = this.state.value
-    var d = this.state.direction
+    let v = this.state.value
+    let d = this.state.direction
 
     v += step * d
 

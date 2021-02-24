@@ -17,11 +17,11 @@ class ProgressBar extends Component {
    * Default width 200, height 20.
    */
   render() {
-    var rho = this._computeRho(this.props.value || 0)
-    var percent = Math.round(rho * 100)
+    const rho = this._computeRho(this.props.value || 0)
+    const percent = Math.round(rho * 100)
 
-    var w = this.props.width || 200
-    var h = this.props.height || 20
+    const w = this.props.width || 200
+    const h = this.props.height || 20
 
     return (
       <div className="ProgressBar">
@@ -54,10 +54,10 @@ class ProgressBar extends Component {
   _draw() {
     const ctx = this.refs.canvas.getContext('2d')
 
-    var h = this.refs.canvas.height
-    var w = this.refs.canvas.width
-    var rho = this._computeRho(this.props.value)
-    var len = rho * w
+    const h = this.refs.canvas.height
+    const w = this.refs.canvas.width
+    const rho = this._computeRho(this.props.value)
+    const len = rho * w
 
     ctx.fillStyle = this.props.color || 'red'
     ctx.clearRect(0,0,w,h)
@@ -73,12 +73,12 @@ class ProgressBar extends Component {
   _computeRho(x) {
     if(!x) x = 0
 
-    var a = this.props.low || 0
-    var b = this.props.high || 100
+    const a = this.props.low || 0
+    const b = this.props.high || 100
 
-    var range = b - a
+    const range = b - a
 
-    var rho = (x - a) / range
+    let rho = (x - a) / range
     rho = Math.max(rho, 0)   // must be at least 0
     rho = Math.min(rho, 1)   // and no greater than 1
 
